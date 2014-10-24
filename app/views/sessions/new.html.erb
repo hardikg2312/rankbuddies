@@ -2,7 +2,7 @@
 
 <%= form_tag sessions_path, :remote => true do %>
   <div>
-    <%= text_field_tag :email, params[:email], :placeholder => "email", :required => true %>
+    <%= text_field_tag :email, params[:email], :placeholder => "email or user name", :required => true %>
     <%= password_field_tag :password, params[:password], :placeholder => "password", :required => true %>
   </div>
   <div class="login_errors"></div>
