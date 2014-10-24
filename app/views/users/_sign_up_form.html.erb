@@ -1,0 +1,10 @@
+<h1>Sign Up</h1>
+<%= form_for @user, :remote => true do |f| %>
+<div>
+<%= f.text_field :email, :placeholder => "email", :required => true %>
+<%= f.password_field :password, :placeholder => "password", :required => true %>
+<%= f.password_field :password_confirmation, :placeholder => "password confirmation", :required => true %> 
+</div>
+<div class="sign_up_errors"></div>
+<%= f.submit "Sign Up" , :class => "btn btn-success"%>
+<% end %>
