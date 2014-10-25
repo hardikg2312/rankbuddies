@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create # will render create.js.erb
     @user = User.new(user_params)
+    @user.provider_email = params[:user][:email]
   end
 
   private

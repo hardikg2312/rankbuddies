@@ -36,15 +36,35 @@ class User < ActiveRecord::Base
       end
     end
 
-    def add_auth_user(omniauth)
-      if omniauth['provider'] == "twitter"
-        name = omniauth['info']['name']
-        user_name = name.downcase.tr(" ",".") + rand(200).to_s
-        email = user_name + "@twitter.com"
-        password =  rand(99999999).to_s
-        user = User.create(:email => email, :password => password, :password_confirmation => password, :user_name => user_name)
+    def omniauth_user_create(omniauth)
+      name = omniauth['info']['name']
+      user_name = name.downcase.tr(" ",".") + rand(200).to_s
+      email = user_name + "@#{omniauth['provider']}.com" if omniauth['provider'] != "google_oauth2"
+      email = user_name + "@googleoauth.com" if omniauth['provider'] == "google_oauth2"
+      provider_email = omniauth["info"]["email"] || email
+      password =  rand(99999999).to_s
+      User.new(:email => email, :password => password, :password_confirmation => password, :user_name => user_name, :provider_email => provider_email)
+    end
+
+    def verify_auth_user_saved(omniauth,user)
+      if user.save 
         user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
         return user
+      else
+        return false
+      end
+    end
+
+    def add_auth_user(omniauth)
+      if omniauth['provider'] == "twitter"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
+      elsif omniauth['provider'] == "facebook"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
+      elsif omniauth['provider'] == "google_oauth2"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
       end
     end
 

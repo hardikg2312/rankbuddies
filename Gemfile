@@ -55,5 +55,5 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'omniauth-facebook'
-gem 'omniauth-openid'
+gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'omniauth-twitter'
