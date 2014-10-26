@@ -7,6 +7,7 @@ hello srcipt 2
       var div_height = $(".user_new_effect-2").height();
       var height = $(window).height()-div_height-40; 
       $(".user_new_effect-2").animate({height:height});
-      $(".user_new_effect-2").empty().html("<center><img src='assets/user_new/expand.png' alt='...' class='user_new_effect_expand_img user_new_effect_expand-2'></center>");
+      //$(".user_new_effect-2").empty().html("<center><img src='assets/user_new/expand.png' alt='...' class='user_new_effect_expand_img user_new_effect_expand-2'></center>");
+      $(".user_new_effect-2").empty().html("<center><%= escape_javascript(image_tag('user_new/expand.png', :alt => '...', :class => 'user_new_effect_expand_img user_new_effect_expand-2')) %></center>");
   });
 </script>
