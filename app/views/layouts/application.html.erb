@@ -6,27 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-
-<div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-      <%= msg  %>
-    </div>
-  <% end %>
-
-  <div id="user_nav">
-        <% if current_user %>
-          Logged in as <%= current_user.email %>.
-          <%= link_to "Log out", log_out_path %>
-        <% else %>
-          <%= link_to "Sign up", sign_up_path ,:class => "btn btn-primary" %> or
-          <%= link_to "log in", log_in_path %>
+  <body>
+    <div class="container">
+      <div class="row">
+        <%= link_to "Home", users_path, :class => "brand" %>
+        <%= link_to "Notifications", users_path, :class => "brand" %>
+        <input type="text" class="input-medium search-query">
+        <%= link_to "Log out", log_out_path, :class => "brand" %>
+      </div>
+      
+      <div class="row">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <%= msg  %>
+          </div>
         <% end %>
-  </div>
-  <%= yield %>
-</div>
+      </div>
 
-</body>
+      <div class="row">
+        <div class="span3">
+          
+        </div>
+
+        <div class="span6">
+          <%= yield %>
+        </div>
+
+        <div class="span3">
+          
+        </div>
+      </div>
+      
+    </div>
+
+  </body>
 </html>
