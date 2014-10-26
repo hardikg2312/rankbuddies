@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user
-      redirect_to users_path
+      redirect_to home_path
     else
       @user = User.new
       render :layout => false

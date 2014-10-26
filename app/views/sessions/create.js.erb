@@ -1,6 +1,6 @@
 <% if @user %>
 	<% session[:user_id] = @user.id %>
-	$(window.location.replace("<%= users_path %>"))  
+	$(window.location.replace("<%= home_path %>"))  
 <% else %>
 	$('.login_errors').empty().append("<%= j 'Invalid email or password' %>")
 <% end %>

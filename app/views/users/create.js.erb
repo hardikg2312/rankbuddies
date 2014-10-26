@@ -1,6 +1,6 @@
 <% if @user.save %>
 	<% session[:user_id] = @user.id %>
-	$(window.location.replace("<%= users_path %>"))  
+	$(window.location.replace("<%= home_path %>"))  
 <% else %>
 	$('.sign_up_errors').empty().append("<%= j @user.errors.full_messages.first %>")
 <% end %>

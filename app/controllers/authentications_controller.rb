@@ -8,11 +8,11 @@ class AuthenticationsController < ApplicationController
 	  authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
 	  if authentication
 	  	session[:user_id] = authentication.user_id
-	    redirect_to users_path
+	    redirect_to home_path
 	  else
 	  	if user = User.add_auth_user(omniauth)
 	  	   session[:user_id] = user.id
-	  	   redirect_to users_path
+	  	   redirect_to home_path
 	  	else
 	  	   redirect_to root_path, :flash => { :success => "Authentication Faild!" } 
 	  	end
