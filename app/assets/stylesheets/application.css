@@ -16,9 +16,7 @@
 
 
 /****************  users#new   *********************/
-.user_new_body{
-	background-image: url("user_new/bg.jpg");
-}
+
 .user_new_effect_container{
 	width: 100%;
 	height: 100px;
