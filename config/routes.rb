@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "home" => "users#index", :as => "home"
-  resources :users
+
+  #match 'users/:user_name', :to => 'posts#index', via: :get 
+  resources :users do
+    resources :posts
+  end
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  has_many :authentications
-  
   attr_accessor :password
   before_save :encrypt_password
   
@@ -16,7 +14,8 @@ class User < ActiveRecord::Base
   validates_presence_of   :password, :on => :create
   validates_length_of     :password,    :within => 5..40
 
-  
+  has_many :authentications
+  has_many :posts   
   
   def encrypt_password
     if password.present?
