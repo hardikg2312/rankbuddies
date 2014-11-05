@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :login_required, :except => [:new, :create] 
 
   def index 
+    @post = Post.new
+    @posts = current_user.posts.order('id desc')
   end
 
   def new
