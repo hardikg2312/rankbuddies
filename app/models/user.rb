@@ -34,6 +34,19 @@ class User < ActiveRecord::Base
         nil
       end
     end
+    
+    def add_auth_user(omniauth)
+      if omniauth['provider'] == "twitter"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
+      elsif omniauth['provider'] == "facebook"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
+      elsif omniauth['provider'] == "google_oauth2"
+        user = omniauth_user_create(omniauth)
+        verify_auth_user_saved(omniauth,user)
+      end
+    end
 
     def omniauth_user_create(omniauth)
       name = omniauth['info']['name']
@@ -51,19 +64,6 @@ class User < ActiveRecord::Base
         return user
       else
         return false
-      end
-    end
-
-    def add_auth_user(omniauth)
-      if omniauth['provider'] == "twitter"
-        user = omniauth_user_create(omniauth)
-        verify_auth_user_saved(omniauth,user)
-      elsif omniauth['provider'] == "facebook"
-        user = omniauth_user_create(omniauth)
-        verify_auth_user_saved(omniauth,user)
-      elsif omniauth['provider'] == "google_oauth2"
-        user = omniauth_user_create(omniauth)
-        verify_auth_user_saved(omniauth,user)
       end
     end
 

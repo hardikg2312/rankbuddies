@@ -22,6 +22,7 @@
           </div>
         <% end %>
       </div>
+      <hr>
 
       <div class="row">
         <div class="span3">
@@ -33,7 +34,11 @@
         </div>
 
         <div class="span3">
-          
+          <% if content_for?(:right) %>
+            <%= yield :right %>
+          <% else %>
+            <%= render "layouts/right_side" %>
+          <% end %>
         </div>
       </div>
       
