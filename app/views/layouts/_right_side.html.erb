@@ -1,1 +1,5 @@
-right side
+<% if content_for?(:right) %>
+  <%= yield :right %>
+<% else %>
+  <%= render "layouts/right_side_content" %>
+<% end %>

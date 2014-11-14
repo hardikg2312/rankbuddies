@@ -1,0 +1,5 @@
+<% if content_for?(:left) %>
+  <%= yield :left %>
+<% else %>
+  <%= render "layouts/left_side_content" %>
+<% end %>

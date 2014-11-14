@@ -13,17 +13,13 @@
       </div>
       
       <div class="row">
-        <% flash.each do |name, msg| %>
-          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-            <%= msg  %>
-          </div>
-        <% end %>
+        <%= render 'layouts/errors'%>
       </div>
       <hr>
 
       <div class="row">
         <div class="span3">
-          
+          <%= render 'layouts/left_side'%>
         </div>
 
         <div class="span6">
@@ -31,11 +27,7 @@
         </div>
 
         <div class="span3">
-          <% if content_for?(:right) %>
-            <%= yield :right %>
-          <% else %>
-            <%= render "layouts/right_side" %>
-          <% end %>
+          <%= render 'layouts/right_side'%>
         </div>
       </div>
       
