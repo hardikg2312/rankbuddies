@@ -32,8 +32,6 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

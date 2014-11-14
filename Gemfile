@@ -61,3 +61,6 @@ gem 'omniauth-twitter'
 gem "rmagick"
 gem "carrierwave"
 gem 'fog'
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
