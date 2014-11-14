@@ -14,7 +14,3 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require_tree .
-
-/****************  users#new   *********************/
-
-/****************  /users#new/   *******************/

@@ -1,11 +1,8 @@
-<%= render  template: "posts/new" %>
 <% @posts.each do |p| %>
 	<div>
 		<%= image_tag p.photo_url_url(:medium), :class => "post_image" if p.photo_url? && p.photo_url_url(:medium) %>
 	</div>
 <% end %>
-
-
 
 <% content_for :right do %>
   <div> content for right side</div>
