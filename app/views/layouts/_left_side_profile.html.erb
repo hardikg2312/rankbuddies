@@ -1,10 +1,23 @@
-<div class="left_side_profile_container">
-  <div align="center">
-  	<%= image_tag "user_new/login-with-facbook.jpg", :class => "left_side_profile_image" %>
+<div class="left_side_profile_container border_round">
+  <div>
+  	<% if current_user.profile_photo %>
+  		<%= image_tag (current_user.profile_photo), :class => "left_side_profile_image border_round" %>
+  	<% else %>
+  	<%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
+  	<% end %>
   </div>
   <div class="left_side_profile_text">
-  	<div>Rank <%= current_user.find_rank %></div>
-  	<div><%= pluralize(current_user.likes, 'Like')+ " "+ pluralize(current_user.dislikes , 'DisLike') %></div>
+  	<div class="left_side_profile_text_name"><%= current_user.display_name %></div>
+  	<table>
+  		<tr class = "left_side_profile_tabel_tr_1" >
+  			<td>Rank</td><td>Likes</td><td>Dislikes</td>
+  		</tr>
+  		<tr class = "left_side_profile_tabel_tr_2">
+  			<td><%= number_with_delimiter(current_user.find_rank, :delimiter => ',') %></td>
+  			<td><%= number_with_delimiter(current_user.likes, :delimiter => ',') %></td>
+  			<td><%= number_with_delimiter(current_user.dislikes, :delimiter => ',') %></td>
+  		</tr>
+  	</table>
   </div>
-  <div class="left_side_strp"></div>
+  <div class="left_side_strp border_round"></div>
 </div>

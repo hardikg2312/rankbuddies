@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     User.where('points > ?', points).size + 1 
   end
 
+  def display_name
+    full_name || '@'+user_name
+  end
+
   class << self
 
     def authenticate(email, password)
@@ -60,12 +64,14 @@ class User < ActiveRecord::Base
 
     def omniauth_user_create(omniauth)
       name = omniauth['info']['name']
+      image = omniauth['info']['image']
+      omniauth['extra']['raw_info']['gender'] == 'female' ? gender = 1 : gender = 0
       user_name = name.downcase.tr(" ",".") + rand(200).to_s
       email = user_name + "@#{omniauth['provider']}.com" if omniauth['provider'] != "google_oauth2"
       email = user_name + "@googleoauth.com" if omniauth['provider'] == "google_oauth2"
       provider_email = omniauth["info"]["email"] || email
       password =  rand(99999999).to_s
-      User.new(:email => email, :password => password, :password_confirmation => password, :user_name => user_name, :provider_email => provider_email)
+      User.new(:email => email, :password => password, :password_confirmation => password, :user_name => user_name, :provider_email => provider_email, :profile_photo => image, :full_name => name, :gender => gender)
     end
 
     def verify_auth_user_saved(omniauth,user)
