@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     likings.where('like_id = ?',user)
   end
 
+  def find_rank
+    User.where('points > ?', points).size + 1 
+  end
+
   class << self
 
     def authenticate(email, password)

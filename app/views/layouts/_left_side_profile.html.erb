@@ -3,8 +3,8 @@
   	<%= image_tag "user_new/login-with-facbook.jpg", :class => "left_side_profile_image" %>
   </div>
   <div class="left_side_profile_text">
-  	<div>Rank</div>
-  	<div>Likes DisLikes</div>
+  	<div>Rank <%= current_user.find_rank %></div>
+  	<div><%= pluralize(current_user.likes, 'Like')+ " "+ pluralize(current_user.dislikes , 'DisLike') %></div>
   </div>
   <div class="left_side_strp"></div>
 </div>
