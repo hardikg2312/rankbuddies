@@ -38,3 +38,7 @@
 	z-index: -1;
 	background-color: red;
 }
+
+.nav_bar_container{
+	padding-left: 30px;
+}
