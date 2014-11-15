@@ -232,7 +232,6 @@ DEPENDENCIES
   binding_of_caller
   carrierwave
   coffee-rails (~> 4.0.0)
-  execjs
   fog
   hpricot
   jbuilder (~> 2.0)

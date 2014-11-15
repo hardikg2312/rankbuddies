@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   match 'auth/:provider/callback' => 'authentications#create', via: [:get, :post]
 
   get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "sign_up" => "users#new", :as => "sign_up"
+  #get "log_in" => "sessions#new", :as => "log_in"
+  #get "sign_up" => "users#new", :as => "sign_up"
   get "home" => "users#index", :as => "home"
 
   #match 'users/:user_name', :to => 'posts#index', via: :get 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :posts
   end
   resources :sessions
+  resources :likings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

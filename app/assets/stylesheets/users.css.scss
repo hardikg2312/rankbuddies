@@ -5,3 +5,34 @@
 .user_new_body{
 	background-image:  asset-data-url("user_new/bg.jpg");
 }
+
+.user_new_effect_container{
+	width: 100%;
+	height: 100px;
+}
+.user_new_effect{
+	width: 100%;
+	background-color: #00DEE1;
+	-webkit-box-shadow: 0px 2px 8px 0px rgba(48, 50, 50, 0.87);
+	-moz-box-shadow:    0px 2px 8px 0px rgba(48, 50, 50, 0.87);
+	box-shadow:         0px 2px 8px 0px rgba(48, 50, 50, 0.87);
+}
+.user_new_effect-1{
+	height: 32px;
+	position: absolute;
+	top: 0px; left: 0px;
+}
+.user_new_effect-2{
+	height: 24px;
+	position: absolute;
+	top: 32px; left: 0px;
+}
+
+.user_new_effect_expand_img{
+   position: absolute;
+   top: 0px;
+   margin-top: 6px;
+   width : 30px;
+   height : 18px;
+   cursor: pointer;
+}

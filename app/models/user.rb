@@ -15,13 +15,19 @@ class User < ActiveRecord::Base
   validates_length_of     :password,    :within => 5..40
 
   has_many :authentications
-  has_many :posts   
+  has_many :posts
+  has_many :likings
+  has_many :like, :through => :likings
   
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+
+  def has_liking_relation(user)
+    likings.where('like_id = ?',user)
   end
 
   class << self

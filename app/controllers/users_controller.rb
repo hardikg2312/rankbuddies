@@ -2,9 +2,14 @@ class UsersController < ApplicationController
 
   before_filter :login_required, :except => [:new, :create] 
 
-  def index 
-    @post = Post.new
+  def index
     @posts = current_user.posts.order('id desc')
+  end
+
+  def show
+    @user = User.find_by_user_name(params[:id])
+    @liking = current_user.has_liking_relation(@user)
+    @liking_status = @liking.first && @liking.first.status
   end
 
   def new

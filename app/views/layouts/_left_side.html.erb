@@ -1,5 +1,6 @@
 <% if content_for?(:left) %>
   <%= yield :left %>
 <% else %>
-  <%= render "layouts/left_side_content" %>
+  <%= render "layouts/left_side_profile" %>
+  <%= render "layouts/left_side_trends" %>
 <% end %>
