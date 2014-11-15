@@ -12,12 +12,12 @@
   		<tr class = "left_side_profile_tabel_tr_1" >
   			<td>Rank</td><td>Likes</td><td>Dislikes</td>
   		</tr>
-  		<tr class = "left_side_profile_tabel_tr_2">
+  		<tr class = "left_side_profile_tabel_tr_2" style=<%= "color:#{current_user.get_text_color}" %>>
   			<td><%= number_with_delimiter(current_user.find_rank, :delimiter => ',') %></td>
   			<td><%= number_with_delimiter(current_user.likes, :delimiter => ',') %></td>
   			<td><%= number_with_delimiter(current_user.dislikes, :delimiter => ',') %></td>
   		</tr>
   	</table>
   </div>
-  <div class="left_side_strp border_round"></div>
+  <div class="left_side_strp border_round" style=<%= "background-color:#{current_user.get_div_color}" %>></div>
 </div>

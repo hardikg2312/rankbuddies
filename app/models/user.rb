@@ -38,6 +38,16 @@ class User < ActiveRecord::Base
     full_name || '@'+user_name
   end
 
+  def get_text_color
+    #text_color || '#0084B4'
+    '#0084B4'
+  end
+
+  def get_div_color
+    #div_color || '#0084B4'
+    '#0084B4'
+  end
+
   class << self
 
     def authenticate(email, password)
