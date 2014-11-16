@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     @liking = current_user.has_liking_relation(@user)
     @liking_status = @liking.first && @liking.first.status
     @color = current_user.get_text_color
-    @liking_status == 'like' ?  @color = '#007211' : @color = '#8E0000' if @liking_status 
+    @liking_status == 'like' ?  @color = '#007211' : @color = '#8E0000' if @liking_status
+    @posts_by_user = @user.posts
+    @posts_on_user = Post.where('post_for = ? ', @user.id)
   end
 
   def new

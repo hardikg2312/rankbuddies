@@ -1,1 +1,15 @@
-posts by suer
+<div>
+  <ul class="nav nav-tabs border_round">
+    <li class="active border_round"><a data-toggle="tab" href="#sectionA">Posts by <%= @user.display_name %></a></li>
+    <li class="user_show_post_nav border_round"><a data-toggle="tab" href="#sectionB">Posts on <%= @user.display_name %></a></li>
+  </ul>
+</div>
+
+<div class="tab-content">
+  <div id="sectionA" class="tab-pane fade in active">
+    <%= render 'posts/posts_templet' , :post => @posts_by_user %>
+  </div>
+  <div id="sectionB" class="tab-pane fade">
+    <%= render 'posts/posts_templet' , :post => @posts_on_user %>
+  </div>
+</div>

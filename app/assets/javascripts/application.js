@@ -33,7 +33,7 @@ $(document).ready(function(){
    // to set back ground color of left nav bar in user#show
    var user_show_hidden_color = $('#hidden_color_field').val();
    $('.user_show_left_nav').css('color',user_show_hidden_color);
-   $('.user_show_left_nav_1, .user_show_left_nav_1:hover, .user_show_left_nav_1:focus').css('background-color',user_show_hidden_color).css('color','#ffffff');
+   $('.user_show_left_nav_1').css('background-color',user_show_hidden_color).css('color','#ffffff');
 });
 
 
