@@ -1,3 +1,9 @@
+<% content_for :top do %>
+  <div class="user_show_cover_photo" style=<%= "background-color:#{current_user.get_div_color}" %>>
+  	<%= image_tag "user_new/bg.jpg" %>
+  </div>
+<% end %>
+
 <% content_for :left do %>
   <%= render "left_side_content" %>
 <% end %>

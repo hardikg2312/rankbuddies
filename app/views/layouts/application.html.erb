@@ -15,6 +15,12 @@
       <div class="row">
         <%= render 'layouts/errors'%>
       </div>
+
+      <div class="row">
+        <% if content_for?(:top) %>
+          <%= yield :top %>
+        <% end %>
+      </div>
       
       <div class="row main_container">
         <div class="span3">

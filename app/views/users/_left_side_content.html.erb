@@ -1,17 +1,5 @@
-<% if @user && @user == current_user %>
-	<%= render 'layouts/left_side_profile'%>
+<% if @user.profile_photo %>
+  <%= image_tag (@user.profile_photo), :class => "left_side_profile_image border_round" %>
 <% else %>
-	<div class="left_side_profile_container">
-	  <div align="center">
-	  	<%= image_tag "user_new/login-with-facbook.jpg", :class => "left_side_profile_image" %>
-	  </div>
-	  <div class="left_side_profile_text">
-	  	<div>Rank</div>
-	  	<div>
-		  	<%= link_to "Like", likings_path(:like_id => @user, :status => "like"), :method => :post, :class => "btn", :disabled => @liking_status == 'like' %>
-		  	<%= link_to "DisLike", likings_path(:like_id => @user, :status => "dislike"), :method => :post, :class => "btn", :disabled => @liking_status == 'dislike' %>
-	  	</div>
-	  </div>
-  <div class="left_side_strp"></div>
-</div>
+  <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
 <% end %>

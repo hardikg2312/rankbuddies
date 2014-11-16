@@ -3,14 +3,20 @@
   	<% if current_user.profile_photo %>
   		<%= image_tag (current_user.profile_photo), :class => "left_side_profile_image border_round" %>
   	<% else %>
-  	<%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
+  	  <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
   	<% end %>
   </div>
   <div class="left_side_profile_text">
-  	<div class="left_side_profile_text_name"><%= current_user.display_name %></div>
+  	<div class="left_side_profile_text_name">
+  		<div class="left_side_profile_text_full_name">
+  			<%= current_user.full_name if current_user.full_name %>
+  			<%= 'Hello,' if !current_user.full_name %>
+  		</div>
+  		<%= '@'+current_user.user_name %>
+  	</div>
   	<table>
   		<tr class = "left_side_profile_tabel_tr_1" >
-  			<td>Rank</td><td>Likes</td><td>Dislikes</td>
+  			<td>RANK</td><td>LIKES</td><td>DISLIKES</td>
   		</tr>
   		<tr class = "left_side_profile_tabel_tr_2" style=<%= "color:#{current_user.get_text_color}" %>>
   			<td><%= number_with_delimiter(current_user.find_rank, :delimiter => ',') %></td>
