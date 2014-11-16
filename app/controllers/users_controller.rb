@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:id])
+    @user = User.friendly.find_by_slug(params[:id])
     @liking = current_user.has_liking_relation(@user)
     @liking_status = @liking.first && @liking.first.status
     @color = current_user.get_text_color
