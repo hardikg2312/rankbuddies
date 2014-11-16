@@ -11,18 +11,27 @@
 <div class ="user_show_main_container">
 	<table>
   		<tr>
-  			<td width="15%">RANK</td><td width="15%">LIKES</td><td width="15%">DISLIKES</td>
+  			<td width="15%">POSTS</td><td width="15%">RANK</td><td width="15%">LIKES</td><td width="15%">DISLIKES</td>
   			<td rowspan="2" width="55%" align="right">
   				<% if current_user == @user %>
   					settings
   				<% else %>
-  					<%= link_to "Like", likings_path(:like_id => @user.id, :status => "like"), :method => :post, :class => "btn btn-info", :disabled => @liking_status == 'like' %>
-   		  	<%= link_to "DisLike", likings_path(:like_id => @user.id, :status => "dislike"), :method => :post, :class => "btn btn-danger", :disabled => @liking_status == 'dislike' %>
+  					<% if @liking_status != 'like' %>
+  						<%= link_to "Like", likings_path(:like_id => @user.id, :status => "like"), :method => :post, :class => "btn btn-info" %>
+  					<% else %>
+  						Liked
+  					<% end %>
+  					<% if @liking_status != 'dislike' %>
+              <%= link_to "DisLike", likings_path(:like_id => @user.id, :status => "dislike"), :method => :post, :class => "btn btn-danger" %>
+            <% else %>
+  						DisLiked
+  					<% end %>
   				<% end %>
   			</td>
   		</tr>
   		<tr class = "user_show_profile_tabel_tr_2" style=<%= "color:#{@color}" %>>
-  			<td><%= number_to_human(@user.find_rank) %></td>
+  		  <td><%= number_to_human(@user.posts_count) %></td>
+  			<td><%= number_with_delimiter(@user.find_rank, :delimiter => ',') %></td>
   			<td><%= number_to_human(@user.likes) %></td>
   			<td><%= number_to_human(@user.dislikes) %></td>
   		</tr>

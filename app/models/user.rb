@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_length_of     :user_name,    :within => 3..40
   validates_confirmation_of :password
   validates_presence_of   :password, :on => :create
-  validates_length_of     :password,    :within => 5..40
+  validates_length_of     :password, :on => :create,   :within => 5..40
 
   has_many :authentications
   has_many :posts
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
       email = user_name + "@#{omniauth['provider']}.com" if omniauth['provider'] != "google_oauth2"
       email = user_name + "@googleoauth.com" if omniauth['provider'] == "google_oauth2"
       provider_email = omniauth["info"]["email"] || email
-      password =  rand(99999999).to_s
+      password =  (10000000 + rand(99999999)).to_s
       User.new(:email => email, :password => password, :password_confirmation => password, :user_name => user_name, :provider_email => provider_email, :profile_photo => image, :full_name => name, :gender => gender)
     end
 

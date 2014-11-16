@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :login_required, :except => [:new, :create] 
+  after_filter :store_location, :only => [:show]
 
   def index
     @posts = current_user.posts.order('id desc')
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @liking = current_user.has_liking_relation(@user)
     @liking_status = @liking.first && @liking.first.status
-    @color = '#0084B4'
+    @color = current_user.get_text_color
     @liking_status == 'like' ?  @color = '#007211' : @color = '#8E0000' if @liking_status 
   end
 

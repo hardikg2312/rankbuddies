@@ -1,3 +1,7 @@
+.user_new_body{
+	background-image:  url("user_new/bg.jpg");
+}
+
 .user_new_effect_container{
 	width: 100%;
 	height: 100px;
@@ -50,8 +54,10 @@
 }
 .user_show_profile_text_full_name{
 	color: black;
-	font-weight: bold;
-	font-size: 18px;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1;
+	word-wrap: break-word;
 }
 
 .user_show_main_container{

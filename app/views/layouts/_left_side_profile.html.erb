@@ -19,7 +19,7 @@
       <td>RANK</td><td>LIKES</td><td>DISLIKES</td>
       </tr>
       <tr class = "left_side_profile_tabel_tr_2" style=<%= "color:#{current_user.get_text_color}" %>>
-        <td><%= number_to_human(current_user.find_rank) %></td>
+        <td><%= number_with_delimiter(current_user.find_rank, :delimiter => ',') %></td>
         <td><%= number_to_human(current_user.likes) %></td>
         <td><%= number_to_human(current_user.dislikes) %></td>
       </tr>
