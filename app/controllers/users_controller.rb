@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @liking = current_user.has_liking_relation(@user)
     @liking_status = @liking.first && @liking.first.status
+    @color = '#0084B4'
+    @liking_status == 'like' ?  @color = '#007211' : @color = '#8E0000' if @liking_status 
   end
 
   def new

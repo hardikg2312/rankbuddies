@@ -1,0 +1,80 @@
+.user_new_effect_container{
+	width: 100%;
+	height: 100px;
+}
+.user_new_effect{
+	width: 100%;
+	background-color: #00DEE1;
+}
+.user_new_effect-1{
+	height: 32px;
+	position: absolute;
+	top: 0px; left: 0px;
+}
+.user_new_effect-2{
+	height: 24px;
+	position: absolute;
+	top: 32px; left: 0px;
+}
+
+.user_new_effect_expand_img{
+   position: absolute;
+   top: 0px;
+   margin-top: 6px;
+   width : 30px;
+   height : 18px;
+   cursor: pointer;
+}
+.user_show_cover_photo{
+	position: fixed;
+	float: left;
+	left: 0px;
+	width: 100%;
+	height: 275px;
+	z-index: -20;
+}
+.user_show_cover_photo img{
+	width: 100%;
+	height: 275px;
+}
+
+.user_show_profile_image{
+	width: 175px;
+	height: 175px;
+	border: 3px solid white;
+	margin-top: 150px;
+}
+.user_show_profile_text_name{
+	margin-top: 10px;
+	padding-left: 10px;
+}
+.user_show_profile_text_full_name{
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.user_show_main_container{
+	margin-top: 240px;
+}
+
+.user_show_main_container table{
+}
+.user_show_main_container table td{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.user_show_main_container table tr{
+	color: #66757f;
+	font-size: 11px;
+	letter-spacing: .02em;
+	text-transform: uppercase;
+	transition: color .15s ease-in-out;
+	text-align: center;
+}
+.user_show_profile_tabel_tr_2 td{
+	font-size: 18px;
+	padding-top: 3px;
+	font-weight: 500;
+	transition: color .15s ease-in-out;
+}

@@ -1,5 +1,5 @@
 <% content_for :top do %>
-  <div class="user_show_cover_photo" style=<%= "background-color:#{current_user.get_div_color}" %>>
+  <div class="user_show_cover_photo" style=<%= "background-color:#{@color}" %>>
   	<%= image_tag "user_new/bg.jpg" %>
   </div>
 <% end %>
@@ -7,3 +7,25 @@
 <% content_for :left do %>
   <%= render "left_side_content" %>
 <% end %>
+
+<div class ="user_show_main_container">
+	<table>
+  		<tr>
+  			<td width="15%">RANK</td><td width="15%">LIKES</td><td width="15%">DISLIKES</td>
+  			<td rowspan="2" width="55%" align="right">
+  				<% if current_user == @user %>
+  					settings
+  				<% else %>
+  					<%= link_to "Like", likings_path(:like_id => @user.id, :status => "like"), :method => :post, :class => "btn btn-info", :disabled => @liking_status == 'like' %>
+   		  	<%= link_to "DisLike", likings_path(:like_id => @user.id, :status => "dislike"), :method => :post, :class => "btn btn-danger", :disabled => @liking_status == 'dislike' %>
+  				<% end %>
+  			</td>
+  		</tr>
+  		<tr class = "user_show_profile_tabel_tr_2" style=<%= "color:#{@color}" %>>
+  			<td><%= number_to_human(@user.find_rank) %></td>
+  			<td><%= number_to_human(@user.likes) %></td>
+  			<td><%= number_to_human(@user.dislikes) %></td>
+  		</tr>
+  	</table>
+  	<hr>
+</div>

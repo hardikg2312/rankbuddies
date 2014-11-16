@@ -8,7 +8,7 @@ class Liking < ActiveRecord::Base
 	belongs_to :like, :class_name => "User"
 
 	def update_counts
-		user = User.find_by_id(self.like_id)
+		user = User.friendly.find_by_id(self.like_id)
 		if status == 'like'
 			user.increment!(:likes) && user.increment!(:points, 20)
 			user.decrement!(:dislikes) && user.increment!(:points, 10) if !new_record?

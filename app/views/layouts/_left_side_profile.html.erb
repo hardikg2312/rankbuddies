@@ -1,29 +1,29 @@
 <div class="left_side_profile_container border_round">
   <div>
-  	<% if current_user.profile_photo %>
-  		<%= image_tag (current_user.profile_photo), :class => "left_side_profile_image border_round" %>
-  	<% else %>
-  	  <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
-  	<% end %>
+    <% if current_user.profile_photo %>
+      <%= image_tag (current_user.profile_photo), :class => "left_side_profile_image border_round" %>
+    <% else %>
+      <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
+    <% end %>
   </div>
   <div class="left_side_profile_text">
-  	<div class="left_side_profile_text_name">
-  		<div class="left_side_profile_text_full_name">
-  			<%= link_to current_user.full_name, current_user if current_user.full_name %>
-  			<%= 'Hello,' if !current_user.full_name %>
-  		</div>
-  		<%= link_to '@'+current_user.user_name, current_user %>
-  	</div>
-  	<table>
-  		<tr class = "left_side_profile_tabel_tr_1" >
-  			<td>RANK</td><td>LIKES</td><td>DISLIKES</td>
-  		</tr>
-  		<tr class = "left_side_profile_tabel_tr_2" style=<%= "color:#{current_user.get_text_color}" %>>
-  			<td><%= number_with_delimiter(current_user.find_rank, :delimiter => ',') %></td>
-  			<td><%= number_with_delimiter(current_user.likes, :delimiter => ',') %></td>
-  			<td><%= number_with_delimiter(current_user.dislikes, :delimiter => ',') %></td>
-  		</tr>
-  	</table>
+    <div class="left_side_profile_text_name">
+      <div class="left_side_profile_text_full_name">
+      <%= link_to current_user.full_name, current_user if current_user.full_name %>
+        <%= 'Hello,' if !current_user.full_name %>
+      </div>
+      <%= link_to '@'+current_user.user_name, current_user %>
+    </div>
+    <table>
+    <tr class = "left_side_profile_tabel_tr_1" >
+      <td>RANK</td><td>LIKES</td><td>DISLIKES</td>
+      </tr>
+      <tr class = "left_side_profile_tabel_tr_2" style=<%= "color:#{current_user.get_text_color}" %>>
+        <td><%= number_to_human(current_user.find_rank) %></td>
+        <td><%= number_to_human(current_user.likes) %></td>
+        <td><%= number_to_human(current_user.dislikes) %></td>
+      </tr>
+    </table>
   </div>
   <div class="left_side_strp border_round" style=<%= "background-color:#{current_user.get_div_color}" %>></div>
 </div>

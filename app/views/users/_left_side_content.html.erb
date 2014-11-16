@@ -1,5 +1,12 @@
 <% if @user.profile_photo %>
-  <%= image_tag (@user.profile_photo), :class => "left_side_profile_image border_round" %>
+  <%= image_tag (@user.profile_photo), :class => "user_show_profile_image border_round" %>
 <% else %>
-  <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "left_side_profile_image border_round" %>
+  <%= image_tag ('user_new/login-with-facbook.jpg'), :class => "user_show_profile_image border_round" %>
 <% end %>
+<div class="user_show_profile_text_name">
+	<div class="user_show_profile_text_full_name">
+	  <%= link_to @user.full_name, @user if @user.full_name %>
+	</div>
+	<%= link_to '@'+@user.user_name, @user %>
+</div>
+
