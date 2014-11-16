@@ -9,6 +9,7 @@
 <% end %>
 
 <div class ="user_show_main_container">
+	<input type="hidden" id="hidden_color_field" value = <%= @color %>>
 	<table>
   		<tr>
   			<td width="15%">POSTS</td><td width="15%">RANK</td><td width="15%">LIKES</td><td width="15%">DISLIKES</td>
@@ -37,4 +38,8 @@
   		</tr>
   	</table>
   	<hr>
+
+  	<div class="user_show_main_container_content">
+  		<%= render 'posts/posts'%>
+  	</div>
 </div>

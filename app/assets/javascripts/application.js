@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+	$('#create_new_post').click(function(){
+	  $('#create_new_post_model').modal()
+	});
+
+	function adjust_window(){
+    var winW = $(window).width();
+    $('.user_show_cover_photo').css('width',winW);
+   }
+   adjust_window();
+   $(window).resize(function(){
+    adjust_window();
+   });
+   
+   // to set back ground color of left nav bar in user#show
+   var user_show_hidden_color = $('#hidden_color_field').val();
+   $('.user_show_left_nav').css('color',user_show_hidden_color);
+   $('.user_show_left_nav_1, .user_show_left_nav_1:hover, .user_show_left_nav_1:focus').css('background-color',user_show_hidden_color).css('color','#ffffff');
+});
+
+
+

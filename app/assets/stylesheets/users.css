@@ -30,7 +30,7 @@
    cursor: pointer;
 }
 .user_show_cover_photo{
-	position: fixed;
+	position: absolute;
 	float: left;
 	left: 0px;
 	width: 100%;
@@ -83,4 +83,11 @@
 	padding-top: 3px;
 	font-weight: 500;
 	transition: color .15s ease-in-out;
+}
+
+.user_show_left_nav{
+	margin-top: 50px;
+}
+.user_show_left_nav ul li{
+	border: 1px solid #e1e8ed;
 }

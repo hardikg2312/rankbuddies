@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  
+  def index
+  end
 
   def create
     @post = current_user.posts.build(post_params)

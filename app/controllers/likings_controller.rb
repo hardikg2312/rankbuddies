@@ -1,5 +1,8 @@
 class LikingsController < ApplicationController
-
+  
+  def index
+  end
+  
 	def create
 		@liking = current_user.likings.find_or_initialize_by(:like_id => params[:like_id])
 		@liking.status = params[:status]

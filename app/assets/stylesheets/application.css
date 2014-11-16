@@ -16,6 +16,9 @@
 a{
 	 color: inherit;
 }
+.border{
+	border: 1px solid #e1e8ed;
+}
 
 .border_round{
 	border-radius: 8px;
