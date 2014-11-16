@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  extend FriendlyId
+  friendly_id :user_name, use: :slugged
 
   attr_accessor :password
   before_save :encrypt_password

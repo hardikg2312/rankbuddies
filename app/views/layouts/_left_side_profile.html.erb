@@ -9,10 +9,10 @@
   <div class="left_side_profile_text">
   	<div class="left_side_profile_text_name">
   		<div class="left_side_profile_text_full_name">
-  			<%= current_user.full_name if current_user.full_name %>
+  			<%= link_to current_user.full_name, current_user if current_user.full_name %>
   			<%= 'Hello,' if !current_user.full_name %>
   		</div>
-  		<%= '@'+current_user.user_name %>
+  		<%= link_to '@'+current_user.user_name, current_user %>
   	</div>
   	<table>
   		<tr class = "left_side_profile_tabel_tr_1" >

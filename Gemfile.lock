@@ -94,6 +94,8 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     hashie (3.3.1)
     hike (1.2.3)
     hpricot (0.8.6)
@@ -233,6 +235,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   fog
+  friendly_id (~> 5.0.0)
   hpricot
   jbuilder (~> 2.0)
   jquery-rails

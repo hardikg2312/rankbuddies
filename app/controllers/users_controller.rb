@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_user_name(params[:id])
+    @user = User.friendly.find(params[:id])
     @liking = current_user.has_liking_relation(@user)
     @liking_status = @liking.first && @liking.first.status
   end

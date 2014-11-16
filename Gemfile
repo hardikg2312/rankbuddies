@@ -61,3 +61,5 @@ gem 'omniauth-twitter'
 gem "rmagick"
 gem "carrierwave"
 gem 'fog'
+
+gem 'friendly_id', '~> 5.0.0'
