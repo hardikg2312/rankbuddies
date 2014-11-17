@@ -111,3 +111,14 @@
 	padding-top: 15px;
 	padding-left: 15px;
 }
+.user_show_media_list{
+	margin-right: 15px;
+	padding: 20px;
+}
+
+.user_show_media_list_img{
+	max-width: 450px;
+	min-width: 300px;
+	max-height: 400px;
+	min-height: 250px;
+}

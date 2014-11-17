@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   after_filter :store_location, :only => [:show]
 
   def index
+    @bg_color = User::COLOR_CODES_BG[:DEFUALT]
     @posts = current_user.posts.order('id desc')
   end
 
