@@ -1,6 +1,0 @@
-var bgColor = $('.user_show_left_nav_active').css('background-color');
-$('.user_show_left_nav_active').css('background-color','#ffffff').css('color',bgColor);
-$('.user_show_left_nav_active').removeClass('user_show_left_nav_active');
-$('.user_show_left_nav_1').addClass('user_show_left_nav_active');
-$('.user_show_left_nav_1').css('background-color',bgColor).css('color','#ffffff');
-$('.user_show_main_container_content').empty().html("<%= escape_javascript(render 'posts/posts') %>");

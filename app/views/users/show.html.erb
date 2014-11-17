@@ -40,6 +40,19 @@
   	<hr>
 
   	<div class="user_show_main_container_content">
-  		<%= render 'posts/posts'%>
+      <div class="tab-content">
+        <div id="section1A" class="tab-pane fade in active">
+          <%= render 'posts/posts' %>
+        </div>
+        <div id="section1B" class="tab-pane fade">
+          <%= render 'likings/likings' %>
+        </div>
+        <div id="section1C" class="tab-pane fade in">
+          <%= render 'likings/likings' %>
+        </div>
+        <div id="section1D" class="tab-pane fade">
+          <%= render 'likings/likings' %>
+        </div>
+      </div>
   	</div>
 </div>

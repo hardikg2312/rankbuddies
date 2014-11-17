@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   
   def index
-  	@user = User.friendly.find_by_slug(params[:user_id])
-  	@posts_by_user = @user.posts
-  	@posts_on_user = Post.where('post_for = ? ', @user.id)
   end
 
   def create

@@ -29,11 +29,6 @@ $(document).ready(function(){
    $(window).resize(function(){
     adjust_window();
    });
-   
-   // to set back ground color of left nav bar in user#show
-   var user_show_hidden_color = $('#hidden_color_field').val();
-   $('.user_show_left_nav').css('color',user_show_hidden_color);
-   $('.user_show_left_nav_1').css('background-color',user_show_hidden_color).css('color','#ffffff');
 });
 
 

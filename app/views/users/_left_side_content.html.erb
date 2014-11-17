@@ -1,3 +1,15 @@
+<style type="text/css">
+  .nav-pills > .active > a,
+  .nav-pills > .active > a:hover,
+  .nav-pills > .active > a:focus {
+    color: #ffffff;
+    background-color: <%= @color %>
+  }
+  .nav-pills{
+    color: <%= @color %>
+  }
+</style>
+
 <% if @user.profile_photo %>
   <%= image_tag (@user.profile_photo), :class => "user_show_profile_image border_round" %>
 <% else %>
@@ -10,12 +22,11 @@
 	<%= link_to '@'+@user.user_name, @user %>
 </div>
 
-<div class="user_show_left_nav border_round">
-  <ul class="nav nav-pills nav-stacked user_show_left_nav_li">
-  	<li><%= link_to "Posts", user_posts_path(@user), :remote => true, :class => "user_show_left_nav_1 user_show_left_nav_active" %></li>
-    <li><a href="#">About</a></li>
-    <li><%= link_to "Likes", likings_path(:user => @user, :status => 'like'), :remote => true, :class => "user_show_left_nav_3" %></li>
-    <li><%= link_to "Dislikes", likings_path(:user => @user, :status => 'dislike'), :remote => true, :class => "user_show_left_nav_4"  %></li>
-   </ul>
+<div>
+  <ul class="nav nav-pills nav-stacked border_round user_show_left_nav">
+    <li class="active"><a data-toggle="tab" href="#section1A">Posts</a></li>
+    <li><a data-toggle="tab" href="#section1B">About</a></li>
+    <li><a data-toggle="tab" href="#section1C">Likes</a></li>
+    <li><a data-toggle="tab" href="#section1D">DisLikes</a></li>
+  </ul>
 </div>
-

@@ -88,6 +88,7 @@
 .user_show_left_nav{
 	margin-top: 50px;
 }
-.user_show_left_nav ul li{
-	border: 1px solid #e1e8ed;
+
+.user_show_left_nav li {
+  border: 1px solid #e1e8ed;
 }
