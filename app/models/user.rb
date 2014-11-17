@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   has_many :likings
   has_many :like, :through => :likings
   
+  COLOR_CODES = { :DEFUALT => '#0084B4', :LIKE => '#007211',  :DISLIKE => '#8E0000'}
+  COLOR_CODES_BG = {:DEFUALT => '#73FFE9', :LIKE => '#C4FFC5',  :DISLIKE => '#FFC1C1'}
+
+
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
@@ -42,13 +46,11 @@ class User < ActiveRecord::Base
   end
 
   def get_text_color
-    #text_color || '#0084B4'
-    '#0084B4'
+    text_color || User::COLOR_CODES[:DEFUALT]
   end
 
   def get_div_color
-    #div_color || '#0084B4'
-    '#0084B4'
+    div_color || User::COLOR_CODES[:DEFUALT]
   end
 
   class << self
